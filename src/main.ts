@@ -1,5 +1,12 @@
 import { exec } from "node:child_process";
+import { mkdir, rm } from "node:fs/promises";
 import { logger } from "./logger";
+
+const srcDir = "./logs";
+const destDir = "./logs_backup";
+
+await rm(destDir, { recursive: true, force: true });
+await mkdir(destDir, { recursive: true });
 
 const line = "0123456789".repeat(1000);
 
@@ -13,8 +20,6 @@ logger.info("===== End of 1st log =====");
 console.log("Done adding 100 lines to the log file.");
 
 // Copy logs to backup directory
-const srcDir = "./logs";
-const destDir = "./logs_backup";
 console.log("Copying logs to backup directory...");
 exec(`xcopy /s /y ${srcDir} ${destDir}`, () => {
   console.log("Done copying logs to backup directory.");
