@@ -2,8 +2,8 @@ import { exec } from "node:child_process";
 import { mkdir, rm } from "node:fs/promises";
 import { logger } from "./logger";
 
-const srcDir = "./logs";
-const destDir = "./logs_backup";
+const srcDir = ".\\logs";
+const destDir = ".\\logs_backup";
 
 await rm(destDir, { recursive: true, force: true });
 await mkdir(destDir, { recursive: true });
