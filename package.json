@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "dist/main.js",
+  "type": "module",
   "scripts": {
     "dev": "tsx src/main.ts",
     "dev:watch": "tsx watch src/main.ts",
